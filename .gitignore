@@ -29,3 +29,5 @@ include
 lib
 icu
 *.xcframework
+.DS_Store
+libspatialite.xcframework.zip
