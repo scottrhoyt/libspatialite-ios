@@ -4,8 +4,7 @@
 #import <spatialite/gaiageo.h>
 #import <spatialite.h>
 
-
-void setupSpatialite();
+void setupSpatialite(sqlite3 *db_handle);
 
 #endif
 
