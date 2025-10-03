@@ -27,6 +27,7 @@ let package = Package(
         .linkedLibrary("iconv"),
         .linkedLibrary("c++"),
         .linkedLibrary("sqlite3"),
+        .linkedLibrary("xml2"),
       ]
     ),
   ]

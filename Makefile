@@ -26,8 +26,8 @@ UTHASHDIR = ${CURDIR}/uthash
 
 CXX = ${XCODE_DEVELOPER}/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++
 CC = ${XCODE_DEVELOPER}/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang
-CFLAGS =-target "${IOS_TARGET}${OSX_TARGET}" -isysroot ${IOS_SDK} -I${IOS_SDK}/usr/include -I${INCLUDEDIR} -I${UTHASHDIR} -Os -fembed-bitcode
-CXXFLAGS =-target "${IOS_TARGET}${OSX_TARGET}" -stdlib=libc++ -std=c++11 -isysroot ${IOS_SDK} -I${IOS_SDK}/usr/include -I${INCLUDEDIR} -I${UTHASHDIR} -Os -fembed-bitcode
+CFLAGS =-target "${IOS_TARGET}${OSX_TARGET}" -isysroot ${IOS_SDK} -I${IOS_SDK}/usr/include -I${IOS_SDK}/usr/include/libxml2 -I${INCLUDEDIR} -I${UTHASHDIR} -Os -fembed-bitcode
+CXXFLAGS =-target "${IOS_TARGET}${OSX_TARGET}" -stdlib=libc++ -std=c++11 -isysroot ${IOS_SDK} -I${IOS_SDK}/usr/include -I${IOS_SDK}/usr/include/libxml2 -I${INCLUDEDIR} -I${UTHASHDIR} -Os -fembed-bitcode
 LDFLAGS =-stdlib=libc++ -isysroot ${IOS_SDK} -L${LIBDIR} -L${IOS_SDK}/usr/lib -arch ${IOS_ARCH}
 
 arch: ${LIBDIR}/libspatialite.a
@@ -38,7 +38,7 @@ ${LIBDIR}/libspatialite.a: ${LIBDIR}/libproj.a ${LIBDIR}/libgeos.a ${LIBDIR}/rtt
 	CC=${CC} \
 	CFLAGS="${CFLAGS}" \
 	CXXFLAGS="${CXXFLAGS}" \
-	LDFLAGS="${LDFLAGS} -liconv -lgeos -lgeos_c -lc++ -licudata -licui18n -licuuc -lsqlite3" \
+	LDFLAGS="${LDFLAGS} -liconv -lgeos -lgeos_c -lc++ -licudata -licui18n -licuuc -lsqlite3 -lxml2" \
 	./configure --host=${IOS_HOST} \
 	--prefix=${PREFIX} \
 	--with-geosconfig=${BINDIR}/geos-config \
@@ -46,7 +46,6 @@ ${LIBDIR}/libspatialite.a: ${LIBDIR}/libproj.a ${LIBDIR}/libgeos.a ${LIBDIR}/rtt
     --disable-minizip \
     --disable-gcov \
     --disable-examples \
-    --disable-libxml2 \
     --disable-shared \
 	--disable-dynamic-extensions \
 	&& make clean install-strip
