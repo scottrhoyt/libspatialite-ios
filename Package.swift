@@ -5,7 +5,7 @@ let package = Package(
   name: "libspatialite",
   platforms: [.iOS(.v17), .macOS(.v12)],
   products: [
-    .library(name: "SpatialiteObjC", type: .dynamic, targets: ["SpatialiteObjC"]),
+    .library(name: "CSpatialite", type: .dynamic, targets: ["CSpatialite"]),
     .library(name: "libspatialite", targets: ["libspatialite"]),
   ],
   targets: [
@@ -15,13 +15,13 @@ let package = Package(
       checksum: "aa5164d10e594acf80fdce4a691611290995749761a8fad63476d92e25cb81d6"
     ),
     .target(
-      name: "SpatialiteObjC",
+      name: "CSpatialite",
       dependencies: [
         "libspatialite"
       ],
-      path: "Sources/SpatialiteObjC",
+      path: "Sources/CSpatialite",
       exclude: [],
-      sources: ["LibSpatialite.m"],
+      sources: ["LibSpatialite.c"],
       linkerSettings: [
         .linkedLibrary("z"),
         .linkedLibrary("iconv"),
