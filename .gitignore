@@ -34,3 +34,5 @@ libspatialite.xcframework.zip
 *.xcuserstate
 
 /.build
+.claude
+.swiftpm

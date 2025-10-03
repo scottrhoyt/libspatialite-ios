@@ -38,7 +38,7 @@ ${LIBDIR}/libspatialite.a: ${LIBDIR}/libproj.a ${LIBDIR}/libgeos.a ${LIBDIR}/rtt
 	CC=${CC} \
 	CFLAGS="${CFLAGS}" \
 	CXXFLAGS="${CXXFLAGS}" \
-	LDFLAGS="${LDFLAGS} -liconv -lgeos -lgeos_c -lc++ -licudata -licui18n -licuuc -lsqlite3" \
+	LDFLAGS="${LDFLAGS} -liconv -lgeos -lgeos_c -lc++ -licudata -licui18n -licuuc -lsqlite3 -lxml2" \
 	./configure --host=${IOS_HOST} \
 	--prefix=${PREFIX} \
 	--with-geosconfig=${BINDIR}/geos-config \
@@ -46,7 +46,7 @@ ${LIBDIR}/libspatialite.a: ${LIBDIR}/libproj.a ${LIBDIR}/libgeos.a ${LIBDIR}/rtt
     --disable-minizip \
     --disable-gcov \
     --disable-examples \
-    --disable-libxml2 \
+    --enable-libxml2 \
     --disable-shared \
 	--disable-dynamic-extensions \
 	&& make clean install-strip
