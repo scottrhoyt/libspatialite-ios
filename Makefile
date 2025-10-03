@@ -26,8 +26,8 @@ UTHASHDIR = ${CURDIR}/uthash
 
 CXX = ${XCODE_DEVELOPER}/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++
 CC = ${XCODE_DEVELOPER}/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang
-CFLAGS =-target "${IOS_TARGET}${OSX_TARGET}" -isysroot ${IOS_SDK} -I${IOS_SDK}/usr/include -I${INCLUDEDIR} -I${UTHASHDIR} -Os -fembed-bitcode
-CXXFLAGS =-target "${IOS_TARGET}${OSX_TARGET}" -stdlib=libc++ -std=c++11 -isysroot ${IOS_SDK} -I${IOS_SDK}/usr/include -I${INCLUDEDIR} -I${UTHASHDIR} -Os -fembed-bitcode
+CFLAGS =-target "${IOS_TARGET}${OSX_TARGET}" -isysroot ${IOS_SDK} -I${IOS_SDK}/usr/include -I${IOS_SDK}/usr/include/libxml2 -I${INCLUDEDIR} -I${UTHASHDIR} -Os -fembed-bitcode
+CXXFLAGS =-target "${IOS_TARGET}${OSX_TARGET}" -stdlib=libc++ -std=c++11 -isysroot ${IOS_SDK} -I${IOS_SDK}/usr/include -I${IOS_SDK}/usr/include/libxml2 -I${INCLUDEDIR} -I${UTHASHDIR} -Os -fembed-bitcode
 LDFLAGS =-stdlib=libc++ -isysroot ${IOS_SDK} -L${LIBDIR} -L${IOS_SDK}/usr/lib -arch ${IOS_ARCH}
 
 arch: ${LIBDIR}/libspatialite.a
