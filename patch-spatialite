@@ -5,3 +5,4 @@ patch -Np0 < patches/gg_dxf.h.patch
 patch -Np0 < patches/gg_formats.h.patch
 patch -Np0 < patches/gg_structs.h.patch
 patch -Np0 < patches/remove_load_extensions.patch
+patch -Np0 < patches/default_security_relaxed.patch

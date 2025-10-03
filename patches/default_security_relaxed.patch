@@ -1,0 +1,20 @@
+--- spatialite/src/spatialite/spatialite.c.orig	2023-08-04 00:00:00.000000000 +0000
++++ spatialite/src/spatialite/spatialite.c	2025-10-03 00:00:00.000000000 +0000
+@@ -52450,9 +52450,13 @@
+ // SPATIALITE_SECURITY=relaxed
+ //
+ */
+     security_level = getenv ("SPATIALITE_SECURITY");
+-    if (security_level == NULL)
+-	;
+-    else if (strcasecmp (security_level, "relaxed") == 0)
++    if (security_level == NULL) {
++	/* Default to relaxed mode when SPATIALITE_SECURITY is not set */
++	/* This is safe for iOS/macOS apps with sandboxed file system access */
++	security_level = "relaxed";
++    }
++
++    if (strcasecmp (security_level, "relaxed") == 0)
+       {
+ 	  sqlite3_create_function_v2 (db, "BlobFromFile", 1,
+ 				      SQLITE_UTF8 | SQLITE_DETERMINISTIC, 0,
