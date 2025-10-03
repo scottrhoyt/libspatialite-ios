@@ -23,8 +23,7 @@ dynamically linked, so it is not necessary to statically link it.
 
 Requirements
 ------------
-* Xcode 16+ with Command Line Tools installed.
-* `gsed` installed - `brew install gsed`
+Xcode 16+ with Command Line Tools installed.
 
 Installation
 ------------
