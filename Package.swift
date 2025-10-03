@@ -11,8 +11,8 @@ let package = Package(
   targets: [
     .binaryTarget(
       name: "libspatialite",
-      url: "https://github.com/mozi-app/libspatialite-ios/releases/download/v0.2.0/libspatialite.xcframework.zip",
-      checksum: "aa5164d10e594acf80fdce4a691611290995749761a8fad63476d92e25cb81d6"
+      url: "https://github.com/scottrhoyt/libspatialite-ios/releases/download/v0.3.0/libspatialite.xcframework.zip",
+      checksum: "3509e3e479081faf8a9d8a7f7b396c7eb54e19eeed9d0d30e9857baa9635df5d"
     ),
     .target(
       name: "CSpatialite",
