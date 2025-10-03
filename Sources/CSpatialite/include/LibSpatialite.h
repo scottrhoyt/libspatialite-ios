@@ -8,7 +8,7 @@
 extern "C" {
 #endif
 
-void setupSpatialite(sqlite3 *db_handle);
+void setupSpatialite(sqlite3 *db_handle, int verbose);
 
 #ifdef __cplusplus
 }
