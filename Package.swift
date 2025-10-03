@@ -11,8 +11,8 @@ let package = Package(
   targets: [
     .binaryTarget(
       name: "libspatialite",
-      url: "https://github.com/mozi-app/libspatialite-ios/releases/download/v0.2.0/libspatialite.xcframework.zip",
-      checksum: "aa5164d10e594acf80fdce4a691611290995749761a8fad63476d92e25cb81d6"
+      url: "https://github.com/scottrhoyt/libspatialite-ios/releases/download/v0.2.1/libspatialite.xcframework.zip",
+      checksum: "bb208896a05aab3742e8a8ad6a623b8d3423747b93753cb06a9da0db558c9008"
     ),
     .target(
       name: "SpatialiteObjC",
@@ -27,6 +27,7 @@ let package = Package(
         .linkedLibrary("iconv"),
         .linkedLibrary("c++"),
         .linkedLibrary("sqlite3"),
+        .linkedLibrary("xml2"),
       ]
     ),
   ]
