@@ -32,7 +32,7 @@ LDFLAGS =-stdlib=libc++ -isysroot ${IOS_SDK} -L${LIBDIR} -L${IOS_SDK}/usr/lib -a
 
 arch: ${LIBDIR}/libspatialite.a
 
-${LIBDIR}/libspatialite.a: ${LIBDIR}/libproj.a ${LIBDIR}/libgeos.a ${LIBDIR}/rttopo.a ${LIBDIR}/libicu.a ${CURDIR}/spatialite
+${LIBDIR}/libspatialite.a: ${LIBDIR}/libproj.a ${LIBDIR}/libgeos.a ${LIBDIR}/libicu.a ${CURDIR}/spatialite
 	cd spatialite && env \
 	CXX=${CXX} \
 	CC=${CC} \
@@ -42,6 +42,7 @@ ${LIBDIR}/libspatialite.a: ${LIBDIR}/libproj.a ${LIBDIR}/libgeos.a ${LIBDIR}/rtt
 	./configure --host=${IOS_HOST} \
 	--prefix=${PREFIX} \
 	--with-geosconfig=${BINDIR}/geos-config \
+	--disable-rttopo \
 	--disable-freexl \
     --disable-minizip \
     --disable-gcov \
