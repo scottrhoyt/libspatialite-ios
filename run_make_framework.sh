@@ -1,12 +1,10 @@
 mkdir -p lib
 mkdir -p include
 
-# Copy includes
-cp -v -R build/arm64-ios/include/geos include
+# Copy includes - only spatialite headers (not dependencies like GEOS, PROJ, ICU)
 cp -v -R build/arm64-ios/include/spatialite include
-cp -v -R build/arm64-ios/include/unicode include
-cp -v -R build/arm64-ios/include/proj include
-cp -v -R build/arm64-ios/include/*.h include
+# Copy top-level spatialite headers if they exist
+cp -v build/arm64-ios/include/spatialite*.h include/ 2>/dev/null || true
 
 # Make fat libraries for Simulator architectures 
 for file in build/arm64-sim/lib/*.a; \
