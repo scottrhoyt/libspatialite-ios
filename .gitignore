@@ -35,3 +35,7 @@ libspatialite.xcframework.zip
 
 /.build
 /.swiftpm
+
+# AI Tools
+.claude
+CLAUDE.md
